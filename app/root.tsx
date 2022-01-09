@@ -1,35 +1,34 @@
-import type { MetaFunction } from "remix";
+import type { LinksFunction, MetaFunction } from 'remix'
 import {
   Links,
-  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "remix";
+} from 'remix'
 
-import styles from "./styles/app.css";
+import styles from './styles/app.css'
 
 export const links: LinksFunction = () => [
   {
-    rel: "preload",
-    href: "/fonts/Manrope[wght].woff2",
-    as: "font",
-    type: "font/woff2",
+    rel: 'preload',
+    href: '/fonts/Manrope[wght].woff2',
+    as: 'font',
+    type: 'font/woff2',
   },
   {
-    rel: "preload",
-    href: "/fonts/JetBrainsMono[wght].woff2",
-    as: "font",
-    type: "font/woff2",
+    rel: 'preload',
+    href: '/fonts/JetBrainsMono[wght].woff2',
+    as: 'font',
+    type: 'font/woff2',
   },
-  { rel: "stylesheet", href: styles },
-];
+  { rel: 'stylesheet', href: styles },
+]
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
-};
+  return { title: 'New Remix App' }
+}
 
 export default function App() {
   return (
@@ -44,8 +43,8 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
-  );
+  )
 }

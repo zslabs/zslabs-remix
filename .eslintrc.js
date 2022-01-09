@@ -41,6 +41,7 @@ module.exports = {
     'global-require': 'off',
     // Typescript
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/consistent-type-imports': 'error',
     // Prettier
     'prettier/prettier': 'error',
     // Simple import sort
@@ -55,6 +56,7 @@ module.exports = {
     'import/order': ['error', { 'newlines-between': 'always' }],
     'import/no-extraneous-dependencies': 'off',
     'import/no-named-as-default': 'off',
+    'import/prefer-default-export': 'off',
     // React
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',

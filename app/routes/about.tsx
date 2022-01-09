@@ -2,7 +2,7 @@ import { Link } from 'remix'
 
 import Test from '~/components/Test'
 
-export default function About() {
+function About() {
   return (
     <>
       <Link to="/">Home</Link>
@@ -11,3 +11,5 @@ export default function About() {
     </>
   )
 }
+
+export default About
