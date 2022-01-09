@@ -1,6 +1,3 @@
-Will eventually be mdx.server.ts
-/**
-
 import path from 'path'
 
 import { bundleMDX } from 'mdx-bundler'
@@ -9,7 +6,7 @@ interface CompileMDXProps {
   file: string
 }
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), 'content', 'posts')
 
 export const compileMDX = async ({ file }: CompileMDXProps) => {
   const fullPath = path.join(postsDirectory, file)

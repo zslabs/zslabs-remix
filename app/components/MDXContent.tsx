@@ -1,4 +1,3 @@
-export {} /*
 import * as React from 'react'
 
 import { getMDXComponent } from 'mdx-bundler/client'
@@ -14,5 +13,3 @@ function MDXContent({ content }: MDXContentProps) {
 }
 
 export default MDXContent
-
-*/
