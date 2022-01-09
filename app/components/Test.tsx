@@ -7,8 +7,6 @@ interface TestInterface {
 function Test({ example }: TestInterface) {
   const [count, setCount] = React.useState(0)
 
-  console.log('test')
-
   return <div>Test {count}</div>
 }
 

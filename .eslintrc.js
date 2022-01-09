@@ -19,7 +19,6 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'prettier',
-    'simple-import-sort',
     'import',
     'react',
     'react-hooks',
@@ -44,16 +43,36 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     // Prettier
     'prettier/prettier': 'error',
-    // Simple import sort
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     // Import
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
-    'import/order': ['error', { 'newlines-between': 'always' }],
+    'import/order': [
+      'error',
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: 'remix',
+            group: 'external',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+      },
+    ],
     'import/no-extraneous-dependencies': 'off',
     'import/no-named-as-default': 'off',
     'import/prefer-default-export': 'off',

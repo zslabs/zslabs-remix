@@ -1,4 +1,13 @@
-import { hydrate } from 'react-dom'
 import { RemixBrowser } from 'remix'
 
-hydrate(<RemixBrowser />, document)
+import { MotionConfig } from 'framer-motion'
+import { hydrate } from 'react-dom'
+
+import { spring } from '~helpers/styles'
+
+hydrate(
+  <MotionConfig transition={spring}>
+    <RemixBrowser />
+  </MotionConfig>,
+  document
+)
