@@ -1,5 +1,6 @@
 import {
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -7,6 +8,24 @@ import {
   ScrollRestoration
 } from "remix";
 import type { MetaFunction } from "remix";
+
+import styles from "./styles/app.css";
+
+export const links: LinksFunction = () => [
+  {
+    rel: "preload",
+    href: "/fonts/Manrope[wght].woff2",
+    as: "font",
+    type: "font/woff2",
+  },
+  {
+    rel: "preload",
+    href: "/fonts/JetBrainsMono[wght].woff2",
+    as: "font",
+    type: "font/woff2",
+  },
+  { rel: "stylesheet", href: styles },
+];
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
