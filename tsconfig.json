@@ -14,7 +14,6 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "~mdx": ["./app/mdx.server.ts"],
       "~components/*": ["./app/components/*"],
       "~utils/*": ["./app/utils/*"],
       "~helpers/*": ["helpers/*"]
