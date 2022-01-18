@@ -10,7 +10,7 @@
     "not op_mini all"
   ],
   "scripts": {
-    "build": "npm run build:css && npm run build:copy && remix build",
+    "build": "npm run build:css && remix build",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "postcss styles --base styles --dir app/styles -w",
     "build:copy": "cp -r ./app/posts ./public/posts",
