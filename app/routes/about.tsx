@@ -1,14 +1,12 @@
 import type { LoaderFunction } from 'remix'
 import { Link, useLoaderData } from 'remix'
 
-import MDXContent from '~/components/MDXContent'
-import Test from '~/components/Test'
-import { compileMDX } from '~utils/compile-mdx.server'
+import MDXContent from '~components/MDXContent'
+import Test from '~components/Test'
+import { compileMDX } from '~utils/mdx.server'
 
 export const loader: LoaderFunction = async () => {
-  const { code } = await compileMDX({
-    file: 'hello-world.mdx',
-  })
+  const { code } = await compileMDX('hello-world')
 
   return { code }
 }
