@@ -10,9 +10,10 @@
     "not op_mini all"
   ],
   "scripts": {
-    "build": "npm run build:css && remix build",
+    "build": "npm run build:css && npm run build:copy && remix build",
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "postcss styles --base styles --dir app/styles -w",
+    "build:copy": "cp -r ./app/posts ./public/posts",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",

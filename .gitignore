@@ -9,3 +9,4 @@ api/_build
 
 .DS_Store
 app/styles
+public/posts
