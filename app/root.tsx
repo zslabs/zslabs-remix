@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from 'remix'
 
 import styles from './styles/app.css'
@@ -27,10 +28,10 @@ export const links: LinksFunction = () => [
 ]
 
 export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' }
+  return { title: 'Zach Schnackel' }
 }
 
-export default function App() {
+function RootWrapper({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -40,13 +41,32 @@ export default function App() {
         <Links />
       </head>
       <body className="antialiased overflow-y-scroll overflow-x-hidden font-medium bg-slate-1 text-slate-12">
-        <div className="max-w-3xl px-4 mx-auto">
-          <Outlet />
-        </div>
+        <div className="max-w-3xl px-4 mx-auto">{children}</div>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
+  )
+}
+
+export default function App() {
+  return (
+    <RootWrapper>
+      <Outlet />
+    </RootWrapper>
+  )
+}
+
+export function CatchBoundary() {
+  const caught = useCatch()
+
+  return (
+    <RootWrapper>
+      <p>Status: {caught.status}</p>
+      <pre>
+        <code>{JSON.stringify(caught.data, null, 2)}</code>
+      </pre>
+    </RootWrapper>
   )
 }
