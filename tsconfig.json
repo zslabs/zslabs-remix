@@ -1,6 +1,7 @@
 {
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
+  "types": ["types"],
   "compilerOptions": {
     // https://github.com/remix-run/remix/issues/1443
     "skipLibCheck": true,
@@ -16,7 +17,8 @@
     "paths": {
       "~components/*": ["./app/components/*"],
       "~utils/*": ["./app/utils/*"],
-      "~helpers/*": ["helpers/*"]
+      "~helpers/*": ["helpers/*"],
+      "~types/*": ["types/*"]
     },
     // Remix takes care of building everything in `remix build`.
     "noEmit": true

@@ -7,7 +7,14 @@ interface TestInterface {
 function Test({ example }: TestInterface) {
   const [count, setCount] = React.useState(0)
 
-  return <div>Test {count}</div>
+  return (
+    <div>
+      Test {count} {console.log({ example })}
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Set
+      </button>
+    </div>
+  )
 }
 
 export default Test

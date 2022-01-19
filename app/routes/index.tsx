@@ -3,6 +3,8 @@ import { Link } from 'remix'
 import ctl from '@netlify/classnames-template-literals'
 import { motion } from 'framer-motion'
 
+import Icon from '~components/Icon'
+
 function Index() {
   return (
     <>
@@ -13,38 +15,9 @@ function Index() {
       >
         Something
       </div>
-      <div className="clip-header bg-primary-9">
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-        something
-        <br />
-      </div>
       Stuff <code>Coding stuff</code>
       <Link to="about">About</Link>
+      <Icon name="scissors" />
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         hello
       </motion.div>

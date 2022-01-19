@@ -9,6 +9,8 @@ import {
   useCatch,
 } from 'remix'
 
+import ctl from '@netlify/classnames-template-literals'
+
 import styles from './styles/app.css'
 
 export const links: LinksFunction = () => [
@@ -52,7 +54,50 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
             </clipPath>
           </defs>
         </svg>
-        <div className="max-w-3xl px-4 mx-auto">{children}</div>
+        <div className="max-w-3xl px-4 mx-auto">
+          <div className="clip-header bg-primary-9">
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+            something
+            <br />
+          </div>
+          {children}
+          <footer
+            className={ctl(`
+            text-center
+            text-sm
+            text-slate-11
+          `)}
+          >
+            <div>
+              Copyright &copy; {new Date().getFullYear()} Zach Schnackel
+            </div>
+          </footer>
+        </div>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
