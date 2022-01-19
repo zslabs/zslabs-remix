@@ -13,6 +13,36 @@ function Index() {
       >
         Something
       </div>
+      <div className="clip-header bg-primary-9">
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+        something
+        <br />
+      </div>
       Stuff <code>Coding stuff</code>
       <Link to="about">About</Link>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

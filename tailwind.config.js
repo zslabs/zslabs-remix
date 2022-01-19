@@ -1,4 +1,6 @@
+const lineClamp = require('@tailwindcss/line-clamp')
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 // Calculates ideal letterSpacing for a given font size
 function dynamicTracking(fontSize) {
@@ -10,6 +12,14 @@ function dynamicTracking(fontSize) {
 
   return `${value.toFixed(3)}em`
 }
+
+const clip = plugin(({ addUtilities }) => {
+  addUtilities({
+    '.clip-header': {
+      'clip-path': 'url(#clipHeader)',
+    },
+  })
+})
 
 module.exports = {
   content: ['./app/**/*.{ts,tsx}'],
@@ -127,5 +137,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [lineClamp, clip],
 }
