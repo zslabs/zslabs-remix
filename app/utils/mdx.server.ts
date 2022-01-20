@@ -1,11 +1,16 @@
-import path from 'path'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 import { bundleMDX } from 'mdx-bundler'
 
 export const compileMDX = async (file: string) => {
+  const fullPath = readFileSync(
+    join(__dirname, '..', '..', 'app/posts', `${file}.mdx`),
+    'utf8'
+  )
+
   const { frontmatter, code } = await bundleMDX({
-    file,
-    cwd: path.dirname(file),
+    source: fullPath,
   })
 
   return {

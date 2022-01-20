@@ -6,9 +6,7 @@ import Test from '~components/Test'
 import { compileMDX } from '~utils/mdx.server'
 
 export const loader: LoaderFunction = async () => {
-  const { code } = await compileMDX(
-    `${__dirname}/../../app/posts/hello-world.mdx`
-  )
+  const { code } = await compileMDX('hello-world')
 
   return { code }
 }
