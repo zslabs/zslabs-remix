@@ -18,6 +18,11 @@ const clip = plugin(({ addUtilities }) => {
     '.clip-header': {
       'clip-path': 'url(#clipHeader)',
     },
+    '.texture': {
+      maskImage: `url(
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='p' width='100' height='100' patternUnits='userSpaceOnUse' patternTransform='scale(0.25)'%3E%3Ccircle data-color='outline' fill='none' stroke='%23FFF' stroke-width='25' cx='50' cy='50' r='.5'%3E%3C/circle%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23p)' width='100%25' height='100%25'%3E%3C/rect%3E%3C/svg%3E"
+      )`,
+    },
   })
 })
 
@@ -27,6 +32,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      overlay: {
+        1: 'var(--overlay1)',
+      },
       primary: {
         1: 'var(--blue1)',
         2: 'var(--blue2)',
@@ -133,6 +141,9 @@ module.exports = {
       fontFamily: {
         sans: ['ZS Sans', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+      },
+      zIndex: {
+        '-1': '-1',
       },
     },
   },

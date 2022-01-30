@@ -10,6 +10,7 @@ import {
 } from 'remix'
 
 import ctl from '@netlify/classnames-template-literals'
+import { motion } from 'framer-motion'
 
 import styles from './styles/app.css'
 
@@ -43,6 +44,13 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="antialiased overflow-y-scroll overflow-x-hidden font-medium bg-slate-1 text-slate-12">
+        <motion.div
+          className="fixed inset-0 -z-1 bg-gradient-to-br from-primary-9 to-accent-9 texture"
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
+        />
+        <div className="fixed inset-0 -z-1 bg-gradient-to-b from-overlay-1 to-slate-1" />
         <svg className="sr-only">
           <defs>
             <clipPath id="clipHeader" clipPathUnits="userSpaceOnUse">
