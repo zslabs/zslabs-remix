@@ -113,6 +113,14 @@ function makeHash(): string {
   display: block;
 }
 
+.z-icon--gradient {
+  --direction: to bottom;
+  --from: currentColor;
+  --to: currentColor;
+
+  background-image: linear-gradient(var(--direction), var(--from), var(--to));
+}
+
 .z-icon--inline {
   display: inline-block;
   vertical-align: -0.125em;

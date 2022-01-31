@@ -14,6 +14,8 @@ import { motion } from 'framer-motion'
 
 import styles from './styles/app.css'
 
+import Icon from '~components/Icon'
+
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
@@ -35,6 +37,18 @@ export const meta: MetaFunction = () => {
 }
 
 function RootWrapper({ children }: { children: React.ReactNode }) {
+  const logoGradientStyle = {
+    '--direction': 'to bottom right',
+    '--from': 'var(--slate3)',
+    '--to': 'var(--slate1)',
+  } as React.CSSProperties
+
+  const logoGradientBlurStyle = {
+    '--direction': 'to bottom right',
+    '--from': 'var(--blue9)',
+    '--to': 'var(--violet9)',
+  } as React.CSSProperties
+
   return (
     <html lang="en">
       <head>
@@ -63,6 +77,12 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
           </defs>
         </svg>
         <div className="max-w-3xl px-4 mx-auto">
+          <div className="text-6xl text-slate-1 relative my-8">
+            <Icon name="logo" gradient style={logoGradientStyle} />
+            <div className="w-[60px] h-[60px] absolute inset-0 -z-1 scale-105 blur-md opacity-75">
+              <Icon name="logo" gradient style={logoGradientBlurStyle} />
+            </div>
+          </div>
           <div className="clip-header bg-primary-9">
             something
             <br />

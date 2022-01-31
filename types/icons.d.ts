@@ -1,1 +1,1 @@
-export type IconName = 'scissors'
+export type IconName = 'logo' | 'scissors'
