@@ -136,7 +136,7 @@ module.exports = {
         { lineHeight: '1', letterSpacing: dynamicTracking(4.5) },
       ],
       '8xl': ['6rem', { lineHeight: '1', letterSpacing: dynamicTracking(6) }],
-      '9xl': ['8rem', { lineHeight: '1', letterSpacing: dynamicTracking(9) }],
+      '9xl': ['8rem', { lineHeight: '1', letterSpacing: dynamicTracking(8) }],
     },
     extend: {
       fontFamily: {

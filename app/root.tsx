@@ -64,7 +64,12 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
         />
-        <div className="fixed inset-0 -z-1 bg-gradient-to-b from-overlay-1 to-slate-1" />
+        <motion.div
+          className="fixed inset-0 -z-1 bg-gradient-to-b from-overlay-1 to-slate-1"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.5 }}
+          transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse' }}
+        />
         <svg className="sr-only">
           <defs>
             <clipPath id="clipHeader" clipPathUnits="userSpaceOnUse">
@@ -82,6 +87,9 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
             <div className="w-[60px] h-[60px] absolute inset-0 -z-1 scale-105 blur-md opacity-75">
               <Icon name="logo" gradient style={logoGradientBlurStyle} />
             </div>
+          </div>
+          <div className="font-bold lowercase text-5xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-slate-10 to-slate-12">
+            Zach Schnackel<span>.</span>
           </div>
           <div className="clip-header bg-primary-9">
             something
