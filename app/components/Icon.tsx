@@ -12,16 +12,19 @@ interface IconProps extends React.ComponentPropsWithoutRef<'div'> {
 }
 
 const Icon = React.forwardRef<HTMLDivElement, IconProps>(
-  ({ name, inline, gradient, className = '', ...rest }, forwardedRef) => {
+  ({ name, inline, gradient, ...rest }, forwardedRef) => {
+    const data = {
+      [`data-${hash}`]: name,
+    }
+
     return (
       <div
         role="img"
         ref={forwardedRef}
+        {...data}
         className={ctl(`
-          z-${hash}-icon--${name}
-          ${inline && 'z-icon--inline'}
-          ${gradient && 'z-icon--gradient'}
-          ${className}
+          ${inline && 'is-inline'}
+          ${gradient && 'has-gradient'}
         `)}
         {...rest}
       />
@@ -29,4 +32,4 @@ const Icon = React.forwardRef<HTMLDivElement, IconProps>(
   }
 )
 
-export default Icon
+export default React.memo(Icon)

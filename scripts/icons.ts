@@ -3,6 +3,7 @@ import { promises as fs } from 'fs'
 import { importDirectory } from '@iconify/tools/lib/import/directory'
 import { runSVGO } from '@iconify/tools/lib/optimise/svgo'
 import { cleanupSVG } from '@iconify/tools/lib/svg/cleanup'
+// import { parseColors, isEmptyColor } from '@iconify/tools/lib/colors/parse'
 import svgToMiniDataURI from 'mini-svg-data-uri'
 
 // Inspired by https://antfu.me/posts/icons-in-pure-css
@@ -11,6 +12,7 @@ function makeHash(): string {
   return (Math.random() + 1).toString(36).substring(7)
 }
 
+// eslint-disable-next-line
 ;(async () => {
   // Used to generate unique classname and selector
   const buildHash = makeHash()
@@ -58,6 +60,7 @@ function makeHash(): string {
           'removeEmptyContainers',
           'convertStyleToAttrs',
           'convertColors',
+          'convertPathData',
           'convertTransform',
           'removeUnknownsAndDefaults',
           'removeNonInheritableGroupAttrs',
@@ -65,6 +68,7 @@ function makeHash(): string {
           'removeUnusedNS',
           'cleanupNumericValues',
           'cleanupListOfValues',
+          'mergePaths',
           'moveElemsAttrsToGroup',
           'moveGroupAttrsToElems',
           'collapseGroups',
@@ -107,13 +111,27 @@ function makeHash(): string {
   await fs.writeFile(`types/icons.d.ts`, types, 'utf8')
 
   // Generate CSS
-  const css = `[class^="z-${buildHash}-icon"] {
+  const css = `
+:root {
+  ${Object.entries(iconStyles)
+    .map(([key, value]) => {
+      return `--${buildHash}-${key}: url("${value.dataUri}");`
+    })
+    .join('\n  ')}
+}
+
+[data-${buildHash}] {
   width: 1em;
   height: 1em;
   display: block;
 }
 
-.z-icon--gradient {
+.is-inline {
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.has-gradient {
   --direction: to bottom;
   --from: currentColor;
   --to: currentColor;
@@ -121,20 +139,13 @@ function makeHash(): string {
   background-image: linear-gradient(var(--direction), var(--from), var(--to));
 }
 
-.z-icon--inline {
-  display: inline-block;
-  vertical-align: -0.125em;
-}
-
 ${Object.entries(iconStyles)
   .map(([key, value]) => {
-    return `.z-${buildHash}-icon--${key} {
-  --icon-uri: url("${value.dataUri}");
-
+    return `[data-${buildHash}="${key}"] {
   ${
     value.mode === 'mask'
-      ? `mask-image: var(--icon-uri); mask-size: 100% 100%; background-color: currentColor;`
-      : `background: var(--icon-uri) no-repeat transparent; background-size: 100% 100%;`
+      ? `mask-image: var(--${buildHash}-${key}); mask-size: 100% 100%; background-color: currentColor;`
+      : `background: var(--${buildHash}-${key}) no-repeat transparent; background-size: 100% 100%;`
   }
 }`
   })
