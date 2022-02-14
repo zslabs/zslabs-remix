@@ -1,5 +1,6 @@
 import type { LinksFunction, MetaFunction } from 'remix'
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -82,12 +83,14 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
           </defs>
         </svg>
         <div className="max-w-3xl px-4 mx-auto">
-          <div className="text-6xl text-slate-1 relative my-8">
-            <Icon name="logo" gradient style={logoGradientStyle} />
-            <div className="w-[60px] h-[60px] absolute inset-0 -z-1 scale-105 blur-md opacity-75">
-              <Icon name="logo" gradient style={logoGradientBlurStyle} />
+          <Link to="/" className="group">
+            <div className="text-6xl text-slate-1 relative my-8">
+              <Icon name="logo" gradient style={logoGradientStyle} />
+              <div className="w-[60px] h-[60px] absolute inset-0 -z-1 scale-105 blur-md duration-150 opacity-75 group-hover:opacity-100">
+                <Icon name="logo" gradient style={logoGradientBlurStyle} />
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="font-bold lowercase text-5xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-b from-slate-10 to-slate-12">
             Zach Schnackel<span>.</span>
           </div>
