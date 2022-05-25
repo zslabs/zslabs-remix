@@ -124,6 +124,7 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
             something
             <br />
           </div>
+          <Link to="/test/here">Test</Link>
           {children}
           <footer
             className={ctl(`
