@@ -22,6 +22,7 @@ module.exports = {
     'import',
     'react',
     'react-hooks',
+    'react-perf',
     'jsx-a11y',
   ],
   extends: [
@@ -34,6 +35,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:react-perf/recommended',
   ],
   rules: {
     // Global
@@ -91,6 +93,13 @@ module.exports = {
       {
         component: true,
         html: false,
+      },
+    ],
+    // React perf
+    'react-perf/jsx-no-new-object-as-prop': [
+      'error',
+      {
+        nativeAllowList: ['style'],
       },
     ],
   },

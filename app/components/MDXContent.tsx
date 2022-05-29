@@ -6,10 +6,12 @@ interface MDXContentProps {
   content: string
 }
 
+const components = {}
+
 function MDXContent({ content }: MDXContentProps) {
   const Component = React.useMemo(() => getMDXComponent(content), [content])
 
-  return <Component components={{}} />
+  return <Component components={components} />
 }
 
 export default MDXContent

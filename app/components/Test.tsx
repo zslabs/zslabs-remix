@@ -1,16 +1,14 @@
 import * as React from 'react'
 
-interface TestInterface {
-  example?: boolean
-}
-
-function Test({ example }: TestInterface) {
+function Test() {
   const [count, setCount] = React.useState(0)
+
+  const handleOnClick = React.useCallback(() => setCount(count + 1), [count])
 
   return (
     <div>
-      Test {count} {console.log({ example })}
-      <button type="button" onClick={() => setCount(count + 1)}>
+      Test {count}
+      <button type="button" onClick={handleOnClick}>
         Set
       </button>
     </div>

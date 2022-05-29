@@ -5,6 +5,9 @@ import { motion } from 'framer-motion'
 
 import Icon from '~components/Icon'
 
+const exampleInitial = { opacity: 0 }
+const exampleAnimate = { opacity: 1 }
+
 function Index() {
   return (
     <>
@@ -18,7 +21,7 @@ function Index() {
       Stuff <code>Coding stuff</code>
       <Link to="about">About</Link>
       <Icon name="scissors" />
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.div initial={exampleInitial} animate={exampleAnimate}>
         hello
       </motion.div>
     </>
