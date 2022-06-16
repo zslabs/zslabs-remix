@@ -1,35 +1,67 @@
+/* eslint-disable react/no-danger */
 import * as React from 'react'
 
-import ctl from '@netlify/classnames-template-literals'
+import manifest from '~icons/build/manifest.json'
+import type { IconName } from '~icons/build/types'
 
-import { hash } from '~helpers/icon-hash'
-import type { IconName } from '~types/icons'
-
-interface IconProps extends React.ComponentPropsWithoutRef<'div'> {
+interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
   name: IconName
+  /** Useful when we need to use an icon within a sentence */
   inline?: boolean
-  gradient?: boolean
+  /** We forbid use of the `className` prop in order to avoid contamination of the source-of-truth. Please don't style icons directly (even in CSS). Use their parent selector to modify size, color, position, etc */
+  className?: never
 }
 
-const Icon = React.forwardRef<HTMLDivElement, IconProps>(
-  ({ name, inline, gradient, ...rest }, forwardedRef) => {
-    const data = {
-      [`data-${hash}`]: name,
+/** Normalize value for dimension calculations */
+function scaleWidth(width = 24, height = 24) {
+  return +(width / height).toFixed(3)
+}
+
+const data = {
+  [`data-${manifest.prefix}`]: true,
+}
+
+const Icon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ name, inline, ...rest }, forwardedRef) => {
+    // Base hash for style
+
+    // Get the icon from the manifest
+    const icon = manifest.icons[name] as {
+      body: string
+      width?: number
+      height?: number
     }
 
+    const body = React.useMemo(() => ({ __html: icon.body }), [icon.body])
+    const viewBox = React.useMemo(
+      () => `0 0 ${icon.width || 24} ${icon.height || 24}`,
+      [icon.width, icon.height]
+    )
+    const style = React.useMemo(
+      () => ({
+        width:
+          icon.width || icon.height
+            ? `${scaleWidth(icon.width, icon.height)}em`
+            : undefined,
+      }),
+      [icon.width, icon.height]
+    )
+
     return (
-      <div
+      <svg
         role="img"
         ref={forwardedRef}
+        viewBox={viewBox}
         {...data}
-        className={ctl(`
-          ${inline && 'is-inline'}
-          ${gradient && 'has-gradient'}
-        `)}
+        {...(inline && { className: 'is-inline' })}
+        dangerouslySetInnerHTML={body}
+        style={style}
         {...rest}
       />
     )
   }
 )
+
+Icon.displayName = 'Icon'
 
 export default React.memo(Icon)

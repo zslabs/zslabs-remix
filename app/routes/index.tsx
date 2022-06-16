@@ -1,6 +1,5 @@
 import { Link } from 'remix'
 
-import ctl from '@netlify/classnames-template-literals'
 import { motion } from 'framer-motion'
 
 import Icon from '~components/Icon'
@@ -11,13 +10,7 @@ const exampleAnimate = { opacity: 1 }
 function Index() {
   return (
     <>
-      <div
-        className={ctl(`
-          font-bold
-        `)}
-      >
-        Something
-      </div>
+      <div className="font-bold">Something</div>
       Stuff <code>Coding stuff</code>
       <Link to="about">About</Link>
       <Icon name="scissors" />

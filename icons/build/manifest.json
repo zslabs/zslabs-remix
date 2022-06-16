@@ -1,0 +1,17 @@
+{
+	"prefix": "eol",
+	"icons": {
+		"check": {
+			"body": "<path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"m5 13 4 4L19 7\"/>"
+		},
+		"logo": {
+			"body": "<g fill=\"currentColor\"><path d=\"M13.2 10.4 10.9 8l-2.8 2.8 2.4 2.3L2.6 21l2.7 2.8L16 13.1z\"/><path d=\"m5.3 16 2.8-2.8-2.4-2.3L13.6 3 10.9.2.2 10.9 3 13.6z\"/></g>",
+			"width": 16
+		},
+		"scissors": {
+			"body": "<path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M7.236 7a3 3 0 1 0-4.472-4 3 3 0 0 0 4.472 4Zm0 0L20 18M7.236 17a3 3 0 1 1-4.472 4 3 3 0 0 1 4.472-4Zm0 0L20 6\"/>"
+		}
+	},
+	"width": 24,
+	"height": 24
+}

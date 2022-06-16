@@ -2,6 +2,11 @@ const lineClamp = require('@tailwindcss/line-clamp')
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
+// @NOTE Use https://colorbox.io/ to generate color palettes
+// Primary: #3990b9
+// Success: #3da35f
+// Danger: #952327
+
 // Calculates ideal letterSpacing for a given font size
 function dynamicTracking(fontSize) {
   const a = -0.0223
@@ -15,14 +20,8 @@ function dynamicTracking(fontSize) {
 
 const clip = plugin(({ addUtilities }) => {
   addUtilities({
-    '.clip-header': {
-      'clip-path': 'url(#clipHeader)',
-    },
-    '.texture': {
-      maskImage: `url(
-        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='p' width='100' height='100' patternUnits='userSpaceOnUse' patternTransform='scale(0.25)'%3E%3Ccircle data-color='outline' fill='none' stroke='%23FFF' stroke-width='25' cx='50' cy='50' r='.5'%3E%3C/circle%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23p)' width='100%25' height='100%25'%3E%3C/rect%3E%3C/svg%3E"
-      )`,
-      maskSize: '100px 100px',
+    '.nnnoise': {
+      backgroundImage: "url('/media/nnnoise-bg.svg')",
     },
   })
 })

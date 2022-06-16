@@ -17,7 +17,8 @@
       "~components/*": ["./app/components/*"],
       "~utils/*": ["./app/utils/*"],
       "~helpers/*": ["helpers/*"],
-      "~types/*": ["types/*"]
+      "~types/*": ["types/*"],
+      "~icons/*": ["icons/*"]
     },
     "noEmit": true,
     "allowJs": false,
