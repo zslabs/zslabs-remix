@@ -1,4 +1,4 @@
-import type { LinksFunction, MetaFunction } from 'remix'
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import {
   Link,
   Links,
@@ -8,7 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
-} from 'remix'
+} from '@remix-run/react'
 
 import styles from './styles/app.css'
 

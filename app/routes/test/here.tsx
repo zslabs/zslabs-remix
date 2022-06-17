@@ -1,5 +1,5 @@
-import type { LoaderFunction } from 'remix'
-import { Link, useLoaderData } from 'remix'
+import type { LoaderFunction } from '@remix-run/node'
+import { Link, useLoaderData } from '@remix-run/react'
 
 import MDXContent from '~components/MDXContent'
 import Test from '~components/Test'

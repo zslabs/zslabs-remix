@@ -67,7 +67,7 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: 'remix',
+            pattern: '@remix',
             group: 'external',
             position: 'before',
           },

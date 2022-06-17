@@ -1,5 +1,4 @@
-import { RemixBrowser } from 'remix'
-
+import { RemixBrowser } from '@remix-run/react'
 import { MotionConfig } from 'framer-motion'
 import { hydrate } from 'react-dom'
 
