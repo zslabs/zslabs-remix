@@ -24,6 +24,7 @@ module.exports = {
     'react-hooks',
     'react-perf',
     'jsx-a11y',
+    'tailwindcss',
   ],
   extends: [
     'airbnb',
@@ -36,6 +37,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react-perf/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   rules: {
     // Global

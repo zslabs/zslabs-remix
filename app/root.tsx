@@ -43,13 +43,13 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="antialiased overflow-y-scroll overflow-x-hidden font-medium bg-slate-1 text-slate-12">
-        <div className="fixed inset-0 pointer-events-none z-10 mix-blend-color-dodge nnnoise" />
-        <div className="max-w-3xl px-4 mx-auto">
+      <body className="overflow-x-hidden overflow-y-scroll bg-slate-1 font-medium text-slate-12 antialiased">
+        <div className="pointer-events-none fixed inset-0 z-10 mix-blend-color-dodge nnnoise" />
+        <div className="mx-auto max-w-3xl px-4">
           <Link to="/" className="text-6xl text-primary-8 drop-shadow-xl">
             <Icon name="logo" />
           </Link>
-          <div className="w-20 h-20 bg-primary-9" />
+          <div className="h-20 w-20 bg-primary-9" />
           <Link to="/test/here">Test</Link>
           {children}
           <footer className="text-center text-sm text-slate-11">
