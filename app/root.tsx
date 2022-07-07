@@ -50,6 +50,12 @@ function RootWrapper({ children }: { children: React.ReactNode }) {
             <Icon name="logo" />
           </Link>
           <div className="h-20 w-20 bg-primary-9" />
+          <div className="my-8 text-lg">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid
+            error possimus, veniam placeat assumenda cumque voluptates quas.
+            Dicta, asperiores accusantium voluptatum magnam enim corrupti quos
+            earum illo autem rerum culpa!
+          </div>
           <Link to="/test/here">Test</Link>
           {children}
           <footer className="text-center text-sm text-slate-11">
